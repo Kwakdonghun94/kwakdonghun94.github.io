@@ -4,7 +4,7 @@ subtitle: "게시글테스트!"
 author: "profile"
 avatar: "img/authors/profile.png"
 image: "img/gorilla.jpg"
-date:   2025-05-27 21:12:12
+date:   2025-05-27 21:00:00
 ---
 ## 아무내용 없음
 아무내용없음
