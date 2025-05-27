@@ -2,8 +2,8 @@
 layout: post
 title: "고릴라!"
 subtitle: "게시글테스트!"
-author: "profile"
-avatar: "img/authors/profile.png"
+author: "donghun"
+avatar: "img/authors/donghun.png"
 image: "img/gorilla.jpg"
 date: 2025-05-27 21:12:12
 ---
