@@ -1,10 +1,21 @@
 ---
-title:  "고릴라!"
+layout: post
+title: "고릴라!"
 subtitle: "게시글테스트!"
 author: "profile"
 avatar: "img/authors/profile.png"
 image: "img/gorilla.jpg"
-date:   2025-05-27 21:00:00
+date: 2025-05-27 21:12:12
 ---
-## 아무내용 없음
-아무내용없음
+
+## 테스트 본문입니다
+
+고릴라 앱을 만들면서 생긴 문제점과 해결 과정에 대한 테스트입니다.  
+이 텍스트가 충분히 길어야 카드 내부 뷰가 정상적으로 생성됩니다.  
+
+- 이건 리스트
+- 이건 링크: [테스트 링크](#)
+
+```python
+# 코드블록도 잘 나오는지 확인
+print("Hello Gorilla!")
