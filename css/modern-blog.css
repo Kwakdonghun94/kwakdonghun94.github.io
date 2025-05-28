@@ -363,3 +363,20 @@ a:focus {
 	-webkit-transform: scale(1)!important;
 	transform: scale(1)!important;
 }
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.85em;
+  color: #3b393d;
+}
+
+.icon-box i {
+  margin-bottom: 5px;
+}
