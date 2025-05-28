@@ -1,7 +1,7 @@
 ---
 title: "Downloads"
 permalink: /downloads/
-layout: single
+layout: page
 author_profile: true
 ---
 
