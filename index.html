@@ -29,22 +29,19 @@ layout: compress
 <div class="container">
     <header class="header">
         <h1>KWAK Log<span>사진 코딩 아무거나 잡다한거</span></h1>
-        <nav class="links">
-
+<nav class="links">
   <a href="/">
     <div class="icon-box">
       <i class="fa fa-home fa-2x"></i>
       <div>Home</div>
     </div>
   </a>
-
   <a href="/about/">
     <div class="icon-box">
       <i class="fa fa-user fa-2x"></i>
       <div>About</div>
     </div>
   </a>
-
   <a href="/downloads/">
     <div class="icon-box">
       <i class="fa fa-download fa-2x"></i>
@@ -57,9 +54,9 @@ layout: compress
       <div>Instagram</div>
     </div>
   </a>
-
 </nav>
-    </header>
+
+ </header>
     <div class="content">
         <!-- trianglify pattern container -->
         <div class="pattern pattern--hidden"></div>
@@ -88,7 +85,7 @@ layout: compress
                         </div>
                         <div class="card__copy">
                             <div class="meta">
-                                <img class="meta__avatar" src="{{ post.avatar }}"/>
+                                <img class="meta__avatar" src="{{ post.avatar }}" alt="author avatar"/>
                                 <span class="meta__author">{{ post.author }}</span>
                                 <span class="meta__date">{{ post.date | date: "%Y-%m-%d" }}</span>
                             </div>
