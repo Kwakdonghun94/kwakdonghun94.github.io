@@ -64,10 +64,7 @@ layout: compress
         <!-- cards -->
         <div class="wrapper">
             {% for post in site.posts %}
-              {% unless post.hidden %}
-                <!-- 카드 UI 출력 -->
-              {% endunless %}
-            {% endfor %}        
+              {% unless post.hidden %}  
             <div class="card" data-id="{{ post.id }}">
                 <div class="card__container card__container--closed">
                     <svg class="card__image" xmlns="http://www.w3.org/2000/svg"
