@@ -356,3 +356,12 @@ a:focus {
 	-webkit-transform: scale(1)!important;
 	transform: scale(1)!important;
 }
+/* =========================== */
+/* ✅ 게시글 이미지 정렬 및 크기 제한 */
+.card__copy img {
+	display: block;
+	margin: 1.5em auto;
+	max-width: 100%;
+	height: auto;
+	border-radius: 0; /* 사각형으로 */
+}
