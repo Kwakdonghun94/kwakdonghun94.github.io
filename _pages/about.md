@@ -1,4 +1,5 @@
 ---
+layout: compress
 title: "About"
 subtitle: "블로그 소개"
 author: "donghun"
@@ -37,7 +38,7 @@ permalink: /about/
         <p>안녕하세요! 저는 동훈입니다.</p>
         <p>이 블로그는 제가 만든 프로그램, AI 실험, 사진 기록 등을 담는 공간입니다.</p>
         <p><strong>Flutter, Python, GPT</strong> 같은 기술들을 다뤄보고 있으며,<br>
-        일상생활에 쓰일법한 아이디어를 가지고 프로그램을 만드는 과정을 담은 곳입니다이건포스트에있는것.</p>
+        일상생활에 쓰일법한 아이디어를 가지고 프로그램을 만드는 과정을 담은 곳입니다.</p>
         <p>문의: <a href="mailto:rhkrstm111@naver.com">rhkrstm111@naver.com</a></p>
       </div>
     </div>
