@@ -1,0 +1,35 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}"/>
+  <meta name="keywords" content="{{ site.keywords }}"/>
+  <meta name="author" content="{{ site.author }}"/>
+  <link rel="shortcut icon" href="{{ site.baseurl }}/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/normalize.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/fonts/font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/modern-blog.css"/>
+</head>
+<body class="body">
+  <div class="container">
+    <header class="header">
+      <h1>{{ site.title }}<span>{{ site.description }}</span></h1>
+      <nav class="links">
+        <a href="/"><i class="fa fa-home fa-2x"></i></a>
+        <a href="/about/"><i class="fa fa-user fa-2x"></i></a>
+        <a href="/downloads/"><i class="fa fa-download fa-2x"></i></a>
+        <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+      </nav>
+    </header>
+    <div class="content" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+      {{ content }}
+    </div>
+  </div>
+</body>
+</html>

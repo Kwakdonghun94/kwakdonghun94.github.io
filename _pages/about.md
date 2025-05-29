@@ -5,7 +5,7 @@ author: "donghun"
 avatar: "img/authors/6497.jpg"
 image: "img/authors/6497.jpg"  # 있으면 설정, 없으면 아무 이미지
 permalink: /about/
-layout: compress
+layout: page
 ---
 
 안녕하세요! 저는 동훈입니다.
