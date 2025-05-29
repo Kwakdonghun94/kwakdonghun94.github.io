@@ -9,7 +9,7 @@ layout: page
 ---
 
 <div style="text-align: center; margin-top: 20px;">
-  <img src="/img/authors/6497.jpg" alt="다운로드 이미지" width="200" style= box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+  <img src="/img/authors/6497.jpg" alt="다운로드 이미지" width="200" style="box-shadow: 0 0 10px rgba(0,0,0,0.2);">
 </div>
 
 <br>
