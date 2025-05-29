@@ -29,6 +29,7 @@ layout: compress
 <div class="container">
     <header class="header">
         <h1>KWAK Log<span>사진 코딩 아무거나 잡다한거</span></h1>
+
 <nav class="links">
   <a href="/">
     <div class="icon-box">
@@ -64,6 +65,9 @@ layout: compress
         <div class="wrapper">
             {% for post in site.posts %}
               {% unless post.hidden %}
+                <!-- 카드 UI 출력 -->
+              {% endunless %}
+            {% endfor %}        
             <div class="card" data-id="{{ post.id }}">
                 <div class="card__container card__container--closed">
                     <svg class="card__image" xmlns="http://www.w3.org/2000/svg"
