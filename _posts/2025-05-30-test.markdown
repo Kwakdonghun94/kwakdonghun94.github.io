@@ -1,10 +1,10 @@
 ---
-title: "test"
-subtitle: "테스트"
+title:  "테스트!"
+subtitle: "The Fly!"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
-image: "img/IMG_0579.jpeg"
-date:   2025-05-30 23:24:19
+image: "img/2025-05-30/IMG_0339.jpeg"
+date:   2015-04-20 12:12:12
 ---
 
 ### 태스트
