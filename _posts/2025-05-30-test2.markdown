@@ -1,0 +1,14 @@
+---
+title: "test2"
+subtitle: "테스트"
+author: "donghun"
+avatar: "img/authors/6497.jpg"
+category: "일반"
+image: "img/2025-05-30/IMG_0530.jpeg"
+date: 2025-05-30 23:02:01
+---
+
+시간테스트
+
+![이미지](../img/2025-05-30/IMG_0530.jpeg)
+
