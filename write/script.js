@@ -52,7 +52,6 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const mdContent = `---
-layout: post
 title: "${titleInput}"
 subtitle: "${subtitleInput || ""}"
 author: "donghun"
