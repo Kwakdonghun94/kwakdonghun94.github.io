@@ -1,0 +1,14 @@
+---
+title: "box1"
+subtitle: "테스트"
+author: "donghun"
+avatar: "img/authors/6497.jpg"
+image: "img/2025-05-31/IMG_0339.jpeg"
+date: 2025-05-31 00:21:59
+---
+
+### 테스트
+테스트입니다
+
+![이미지](../img/2025-05-31/IMG_0339.jpeg)
+
