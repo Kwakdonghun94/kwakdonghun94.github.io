@@ -1,32 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>블로그 글쓰기</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>블로그 글쓰기</h1>
-    <form id="postForm">
-      <input type="text" id="title" placeholder="제목" required />
-      <input type="text" id="subtitle" placeholder="부제목 (선택)" />
-      <input type="text" id="category" placeholder="카테고리 (예: 코딩, 여행)" />
-      <textarea id="content" placeholder="내용을 입력하세요" required></textarea>
-      <input type="file" id="image" accept="image/*" />
-      <img id="imagePreview" src="#" style="display:none; max-width:100%; margin-top:10px; border-radius:8px;" />
-      <button type="submit">✍️ 게시하기</button>
-    </form>
-
+  <h1>블로그 글쓰기</h1>
+  <form id="postForm">
+    <input type="text" id="title" placeholder="제목" required />
+    <input type="text" id="subtitle" placeholder="부제목 (선택)" />
+    <textarea id="content" placeholder="내용" required></textarea>
+    <input type="file" id="image" accept="image/*" />
+    <img id="imagePreview" style="display:none; max-width:100%; margin-top:10px;" />
     <div class="buttons">
-      <button id="resetToken">🔓 토큰 초기화</button>
-      <a id="previewLink" href="#" target="_blank" style="display:none;">🔍 블로그에서 보기</a>
+      <button type="submit">업로드</button>
+      <button type="button" id="resetToken">토큰 초기화</button>
+      <a id="previewLink" href="#" style="display:none;" target="_blank">블로그에서 보기</a>
     </div>
-
-    <p id="status"></p>
-  </div>
-
+  </form>
+  <p id="status"></p>
   <script src="script.js"></script>
 </body>
 </html>

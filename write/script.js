@@ -1,8 +1,8 @@
+
 document.getElementById("postForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const titleInput = document.getElementById("title").value.trim();
   const subtitleInput = document.getElementById("subtitle").value.trim();
-  const categoryInput = document.getElementById("category").value.trim();
   const contentInput = document.getElementById("content").value.trim();
   const image = document.getElementById("image").files[0];
   const status = document.getElementById("status");
@@ -22,41 +22,22 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
 
-  // ✅ 정확한 한국 시간 기반 날짜 계산 (밀림 방지)
   const kst = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Seoul" });
   const [dateStr, timeStr] = kst.split(" ");
   const fullDateTime = `${dateStr} ${timeStr}`;
-
   const [yyyy, mm, dd] = dateStr.split("-");
 
-  // 간단한 한글 로마자 변환 테이블
-  const hangulMap = {
-    '가': 'ga', '나': 'na', '다': 'da', '라': 'ra', '마': 'ma', '바': 'ba', '사': 'sa',
-    '아': 'a', '자': 'ja', '차': 'cha', '카': 'ka', '타': 'ta', '파': 'pa', '하': 'ha',
-    '거': 'geo', '너': 'neo', '더': 'deo', '러': 'reo', '머': 'meo', '버': 'beo', '서': 'seo',
-    '어': 'eo', '저': 'jeo', '처': 'cheo', '커': 'keo', '터': 'teo', '퍼': 'peo', '허': 'heo',
-    '고': 'go', '노': 'no', '도': 'do', '로': 'ro', '모': 'mo', '보': 'bo', '소': 'so',
-    '오': 'o', '조': 'jo', '초': 'cho', '코': 'ko', '토': 'to', '포': 'po', '호': 'ho',
-    '구': 'gu', '누': 'nu', '두': 'du', '루': 'ru', '무': 'mu', '부': 'bu', '수': 'su',
-    '우': 'u', '주': 'ju', '추': 'chu', '쿠': 'ku', '투': 'tu', '푸': 'pu', '후': 'hu',
-    '기': 'gi', '니': 'ni', '디': 'di', '리': 'ri', '미': 'mi', '비': 'bi', '시': 'si',
-    '이': 'i', '지': 'ji', '치': 'chi', '키': 'ki', '티': 'ti', '피': 'pi', '히': 'hi',
-    ' ': '-', '꽃': 'ggot', '테': 'te', '스': 'seu', '트': 'teu', '장': 'jang', '미': 'mi'
-  };
-
-  const slugify = (text) => {
-    return text
-      .split('')
-      .map(char => hangulMap[char] || char)
-      .join('')
-      .normalize("NFD").replace(/[̀-ͯ]/g, "")
-      .replace(/[^\w\s-]/g, "")
-      .trim()
+  const slugify = (text) =>
+    text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\w\s-가-힣]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/[가-힣]/g, "")
       .toLowerCase()
-      .replace(/\s+/g, "-");
-  };
+      .substring(0, 50);
 
-  const safeSlug = slugify(titleInput);
+  const safeSlug = slugify(titleInput) || "post";
   const fileName = `${dateStr}-${safeSlug}.markdown`;
   const postPath = `_posts/${fileName}`;
 
@@ -71,11 +52,11 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const mdContent = `---
+layout: post
 title: "${titleInput}"
 subtitle: "${subtitleInput || ""}"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
-category: "${categoryInput || "일반"}"
 image: "${imagePath || ""}"
 date: ${fullDateTime}
 ---
