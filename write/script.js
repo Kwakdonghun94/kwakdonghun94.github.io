@@ -21,21 +21,30 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
-  const now = new Date();
-  const kstOffset = 9 * 60 * 60000;
-  const kstDate = new Date(now.getTime() + kstOffset);
 
-  const yyyy = kstDate.getFullYear();
-  const mm = String(kstDate.getMonth() + 1).padStart(2, "0");
-  const dd = String(kstDate.getDate()).padStart(2, "0");
-  const hh = String(kstDate.getHours()).padStart(2, "0");
-  const mi = String(kstDate.getMinutes()).padStart(2, "0");
-  const ss = String(kstDate.getSeconds()).padStart(2, "0");
+  const now = new Date();
+  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000); // KST
+  const yyyy = kst.getFullYear();
+  const mm = String(kst.getMonth() + 1).padStart(2, "0");
+  const dd = String(kst.getDate()).padStart(2, "0");
+  const hh = String(kst.getHours()).padStart(2, "0");
+  const mi = String(kst.getMinutes()).padStart(2, "0");
+  const ss = String(kst.getSeconds()).padStart(2, "0");
 
   const dateStr = `${yyyy}-${mm}-${dd}`;
   const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
-  const safeTitle = titleInput.replace(/[^\w\-가-힣]+/g, "-");
-  const fileName = `${dateStr}-${safeTitle}.md`;
+
+  const slugify = (text) => {
+    return text
+      .normalize("NFD").replace(/[̀-ͯ]/g, "")
+      .replace(/[^\w\s-]/g, "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+  };
+
+  const safeSlug = slugify(titleInput);
+  const fileName = `${dateStr}-${safeSlug}.md`;
   const postPath = `_posts/${fileName}`;
 
   let imageMarkdown = "";
@@ -65,8 +74,7 @@ ${contentInput}${imageMarkdown}
   await uploadToGitHub(token, repo, postPath, encodedContent, "글 업로드");
 
   status.textContent = `✅ 글 업로드 완료: ${fileName}`;
-  const blogSlug = safeTitle.toLowerCase();
-  const blogUrl = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${blogSlug}/`;
+  const blogUrl = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${safeSlug}/`;
   previewLink.href = blogUrl;
   previewLink.style.display = "inline-block";
 });
