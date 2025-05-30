@@ -6,10 +6,9 @@ body {
   color: #333;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
 }
-
 .container {
   background: #ffffff;
   border-radius: 16px;
@@ -19,23 +18,18 @@ body {
   max-width: 600px;
   box-sizing: border-box;
 }
-
 h1 {
   text-align: center;
   font-size: 24px;
   color: #222;
   margin-bottom: 1.5rem;
 }
-
 form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
-input[type="text"],
-textarea,
-input[type="file"] {
+input[type="text"], textarea, input[type="file"] {
   width: 100%;
   padding: 14px;
   font-size: 16px;
@@ -44,21 +38,17 @@ input[type="file"] {
   background-color: #f9fafb;
   box-sizing: border-box;
 }
-
 textarea {
   resize: vertical;
   min-height: 160px;
 }
-
 .buttons {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 1rem;
 }
-
-.buttons button,
-.buttons a {
+.buttons button, .buttons a {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
   padding: 14px;
@@ -70,15 +60,36 @@ textarea {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
-.buttons button:hover,
-.buttons a:hover {
+.buttons button:hover, .buttons a:hover {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
-
 #status {
   margin-top: 1rem;
   text-align: center;
   font-weight: bold;
   color: green;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+  }
+  .container {
+    background-color: #2a2a2a;
+    box-shadow: none;
+  }
+  input, textarea {
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #aaa;
+  }
+  .buttons button, .buttons a {
+    background: linear-gradient(135deg, #4b5563, #374151);
+  }
+  .buttons button:hover, .buttons a:hover {
+    background: linear-gradient(135deg, #374151, #1f2937);
+  }
 }
