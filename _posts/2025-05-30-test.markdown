@@ -1,0 +1,14 @@
+---
+layout: post
+title: "test"
+subtitle: "테스트"
+author: "donghun"
+avatar: "img/authors/6497.jpg"
+image: "img/2025-05-30/IMG_0579.jpeg"
+date: 2025-05-30 23:24:19
+---
+
+테스트
+
+![이미지](../img/2025-05-30/IMG_0579.jpeg)
+
