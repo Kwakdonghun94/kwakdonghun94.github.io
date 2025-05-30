@@ -62,6 +62,43 @@ date: ${fullDateTime}
 
 ${contentInput}${imageMarkdown}
 `;
+  const [yyyy, mm, dd] = dateStr.split("-");
+
+  const slugify = (text) =>
+    text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^\w\s-가-힣]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/[가-힣]/g, "")
+      .toLowerCase()
+      .substring(0, 50);
+
+  const safeSlug = slugify(titleInput) || "post";
+  const fileName = `${dateStr}-${safeSlug}.markdown`;
+  const postPath = `_posts/${fileName}`;
+
+  let imageMarkdown = "";
+  let imagePath = "";
+
+  if (image) {
+    const imageBase64 = await toBase64(image);
+    imagePath = `img/${dateStr}/${image.name}`;
+    await uploadToGitHub(token, repo, imagePath, imageBase64, "이미지 업로드");
+    imageMarkdown = `\n\n![이미지](../${imagePath})\n`;
+  }
+
+  const mdContent = `---
+title: "${titleInput}"
+subtitle: "${subtitleInput || ""}"
+author: "donghun"
+avatar: "img/authors/6497.jpg"
+image: "${imagePath || ""}"
+date: ${fullDateTime}
+---
+
+${contentInput}${imageMarkdown}
+`;
 
   const encodedContent = btoa(unescape(encodeURIComponent(mdContent)));
   await uploadToGitHub(token, repo, postPath, encodedContent, "글 업로드");
