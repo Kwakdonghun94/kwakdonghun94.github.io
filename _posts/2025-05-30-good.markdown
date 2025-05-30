@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "good"
 subtitle: "좋아이거야"
 author: "donghun"
@@ -11,4 +10,13 @@ date: 2025-05-30 23:32:26
 아주볼만해
 
 ![이미지](../img/2025-05-30/IMG_0583.jpeg)
+
+---
+title: ""
+subtitle: ""
+author: "donghun"
+avatar: "img/authors/donghun.png"
+image: "img/"
+date: 2025-05-30 23:36:00
+---
 
