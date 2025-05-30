@@ -51,7 +51,16 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
     imageMarkdown = `\n\n![이미지](../${imagePath})\n`;
   }
 
-  const mdContent = `---
+  const mdContent =
+`---\n` +
+`title: "${titleInput}"\n` +
+`subtitle: "${subtitleInput || ""}"\n` +
+`author: "donghun"\n` +
+`avatar: "img/authors/6497.jpg"\n` +
+`image: "${imagePath || ""}"\n` +
+`date: ${fullDateTime}\n` +
+`---\n\n` +
+${contentInput}${imageMarkdown};
 title: "${titleInput}"
 subtitle: "${subtitleInput || ""}"
 author: "donghun"
@@ -88,7 +97,16 @@ ${contentInput}${imageMarkdown}
     imageMarkdown = `\n\n![이미지](../${imagePath})\n`;
   }
 
-  const mdContent = `---
+  const mdContent =
+`---\n` +
+`title: "${titleInput}"\n` +
+`subtitle: "${subtitleInput || ""}"\n` +
+`author: "donghun"\n` +
+`avatar: "img/authors/6497.jpg"\n` +
+`image: "${imagePath || ""}"\n` +
+`date: ${fullDateTime}\n` +
+`---\n\n` +
+${contentInput}${imageMarkdown};
 title: "${titleInput}"
 subtitle: "${subtitleInput || ""}"
 author: "donghun"
