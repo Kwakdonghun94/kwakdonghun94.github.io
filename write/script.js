@@ -21,15 +21,14 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
+  const now = new Date(); // 브라우저 시간 그대로 사용
 
-  const today = new Date();
-  const kst = new Date(today.getTime() + 9 * 60 * 60 * 1000);
-  const yyyy = kst.getFullYear();
-  const mm = String(kst.getMonth() + 1).padStart(2, "0");
-  const dd = String(kst.getDate()).padStart(2, "0");
-  const hh = String(kst.getHours()).padStart(2, "0");
-  const mi = String(kst.getMinutes()).padStart(2, "0");
-  const ss = String(kst.getSeconds()).padStart(2, "0");
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
 
   const dateStr = `${yyyy}-${mm}-${dd}`;
   const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
