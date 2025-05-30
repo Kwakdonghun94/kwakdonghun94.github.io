@@ -70,3 +70,8 @@ button:hover {
   margin-top: 1rem;
   color: lightgreen;
 }
+
+.preview-container {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}

@@ -21,7 +21,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
-  const now = new Date(); // 브라우저 시간 그대로 사용
+  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // 브라우저 시간 그대로 사용
 
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, "0");
