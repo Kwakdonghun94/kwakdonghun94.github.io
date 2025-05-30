@@ -3,7 +3,7 @@ title:  "테스트!"
 subtitle: "The Fly!"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
-image: "img/a.jpg"
+image: "img/IMG_0583.jpeg"
 date:   2015-04-20 12:12:12
 ---
 

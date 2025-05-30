@@ -4,7 +4,7 @@ subtitle: "좋아이거야"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
 image: "img/IMG_0583.jpeg"
-date: 2025-05-30 23:32:26
+date:   2025-05-30 23:32:26
 ---
 
 아주볼만해
