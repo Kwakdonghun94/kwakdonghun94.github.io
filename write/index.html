@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>블로그 글쓰기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>블로그 글쓰기</h1>
+  <form id="postForm">
+    <input type="text" id="title" placeholder="제목" required /><br />
+    <textarea id="content" rows="10" placeholder="내용" required></textarea><br />
+    <input type="file" id="image" accept="image/*" /><br />
+    <button type="submit">게시하기</button>
+  </form>
+
+  <div class="buttons">
+    <button id="resetToken">🔓 토큰 초기화</button>
+    <a id="previewLink" href="#" target="_blank" style="display:none;">🔍 블로그에서 보기</a>
+  </div>
+
+  <p id="status"></p>
+  <script src="script.js"></script>
+</body>
+</html>
