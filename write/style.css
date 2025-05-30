@@ -69,36 +69,31 @@ textarea {
   font-weight: bold;
   color: green;
 }
+
+/* 다크모드 자동 적용 */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #1e1e1e;
     color: #f5f5f5;
   }
-
   .container {
     background-color: #2a2a2a;
     box-shadow: none;
   }
-
   input, textarea {
-    background-color: #333;
-    color: white;
-    border: 1px solid #444;
+    background-color: #333 !important;
+    color: white !important;
+    border: 1px solid #444 !important;
+    caret-color: white !important;
   }
-
   input::placeholder,
   textarea::placeholder {
-    color: #aaa;
+    color: #aaa !important;
   }
-
-  .buttons button,
-  .buttons a {
+  .buttons button, .buttons a {
     background: linear-gradient(135deg, #4b5563, #374151);
   }
-
-  .buttons button:hover,
-  .buttons a:hover {
+  .buttons button:hover, .buttons a:hover {
     background: linear-gradient(135deg, #374151, #1f2937);
   }
 }
-
