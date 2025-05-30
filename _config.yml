@@ -10,3 +10,4 @@ include:
   - _pages
 
 markdown_ext: markdown,md
+timezone: Asia/Seoul
