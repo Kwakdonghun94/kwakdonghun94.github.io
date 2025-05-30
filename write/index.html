@@ -7,20 +7,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>블로그 글쓰기</h1>
-  <form id="postForm">
-    <input type="text" id="title" placeholder="제목" required /><br />
-    <textarea id="content" rows="10" placeholder="내용" required></textarea><br />
-    <input type="file" id="image" accept="image/*" /><br />
-    <button type="submit">게시하기</button>
-  </form>
+  <div class="container">
+    <h1>블로그 글쓰기</h1>
+    <form id="postForm">
+      <input type="text" id="title" placeholder="제목" required />
+      <textarea id="content" placeholder="내용을 입력하세요" required></textarea>
+      <input type="file" id="image" accept="image/*" />
+      <button type="submit">✍️ 게시하기</button>
+    </form>
 
-  <div class="buttons">
-    <button id="resetToken">🔓 토큰 초기화</button>
-    <a id="previewLink" href="#" target="_blank" style="display:none;">🔍 블로그에서 보기</a>
+    <div class="buttons">
+      <button id="resetToken">🔓 토큰 초기화</button>
+      <a id="previewLink" href="#" target="_blank" style="display:none;">🔍 블로그에서 보기</a>
+    </div>
+
+    <p id="status"></p>
   </div>
 
-  <p id="status"></p>
   <script src="script.js"></script>
 </body>
 </html>
