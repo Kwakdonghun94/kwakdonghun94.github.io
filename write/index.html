@@ -8,20 +8,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>블로그 글쓰기</h1>
-  <form id="postForm">
-    <input type="text" id="title" placeholder="제목" required />
-    <input type="text" id="subtitle" placeholder="부제목 (선택)" />
-    <textarea id="content" placeholder="내용" required></textarea>
-    <input type="file" id="image" accept="image/*" />
-    <img id="imagePreview" style="display:none; max-width:100%; margin-top:10px;" />
-    <div class="buttons">
-      <button type="submit">업로드</button>
-      <button type="button" id="resetToken">토큰 초기화</button>
-      <a id="previewLink" href="#" style="display:none;" target="_blank">블로그에서 보기</a>
-    </div>
-  </form>
-  <p id="status"></p>
+  <div class="container">
+    <h1>블로그 글쓰기</h1>
+    <form id="postForm">
+      <input type="text" id="title" placeholder="제목" required />
+      <input type="text" id="subtitle" placeholder="부제목 (선택)" />
+      <textarea id="content" placeholder="내용" required></textarea>
+      <input type="file" id="image" accept="image/*" />
+      <img id="imagePreview" style="display:none;" />
+      <div class="buttons">
+        <button type="submit">업로드</button>
+        <button type="button" id="resetToken">토큰 초기화</button>
+        <a id="previewLink" href="#" style="display:none;" target="_blank">블로그에서 보기</a>
+      </div>
+    </form>
+    <p id="status"></p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
