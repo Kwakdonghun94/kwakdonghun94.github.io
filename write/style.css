@@ -1,24 +1,16 @@
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #121212;
-  color: #f5f5f5;
+body {
   font-family: 'Helvetica', sans-serif;
-}
-
-.container {
-  width: 100vw;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  background-color: #1e1e1e;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  color: #222;
 }
 
 form {
@@ -31,18 +23,12 @@ input[type="text"],
 textarea,
 input[type="file"] {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   font-size: 16px;
-  border: 1px solid #444;
-  border-radius: 12px;
-  background-color: #2a2a2a;
-  color: white;
-  box-sizing: border-box;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #bbb;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f2f2f2;
+  color: #000;
 }
 
 textarea {
@@ -51,32 +37,23 @@ textarea {
 }
 
 button {
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #007bff, #0056d2);
+  background-color: #007acc;
   color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(135deg, #0056d2, #0041a8);
-}
-
-#imagePreview {
-  display: none;
-  margin-top: 1rem;
-  max-width: 100%;
-  border-radius: 10px;
+  background-color: #005ea2;
 }
 
 #status {
   text-align: center;
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: 20px;
   color: green;
 }
 
@@ -84,20 +61,22 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .buttons button,
 .buttons a {
-  padding: 14px;
+  padding: 12px;
   font-size: 16px;
   text-align: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6c757d, #495057);
+  background-color: #007acc;
   color: white;
+  border: none;
+  border-radius: 6px;
   text-decoration: none;
 }
 
 .buttons button:hover,
 .buttons a:hover {
-  background: linear-gradient(135deg, #495057, #343a40);
+  background-color: #005ea2;
 }

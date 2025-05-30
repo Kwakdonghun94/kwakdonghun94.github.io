@@ -22,23 +22,19 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
 
-  const kst = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Seoul" });
-  const [dateStr, timeStr] = kst.split(" ");
-  const fullDateTime = `${dateStr} ${timeStr}`;
-  const [yyyy, mm, dd] = dateStr.split("-");
+  const today = new Date();
+  const kst = new Date(today.getTime() + 9 * 60 * 60 * 1000);
+  const yyyy = kst.getFullYear();
+  const mm = String(kst.getMonth() + 1).padStart(2, "0");
+  const dd = String(kst.getDate()).padStart(2, "0");
+  const hh = String(kst.getHours()).padStart(2, "0");
+  const mi = String(kst.getMinutes()).padStart(2, "0");
+  const ss = String(kst.getSeconds()).padStart(2, "0");
 
-  const slugify = (text) =>
-    text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^\w\s-가-힣]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/[가-힣]/g, "")
-      .toLowerCase()
-      .substring(0, 50);
-
-  const safeSlug = slugify(titleInput) || "post";
-  const fileName = `${dateStr}-${safeSlug}.markdown`;
+  const dateStr = `${yyyy}-${mm}-${dd}`;
+  const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
+  const safeTitle = titleInput.replace(/[^\w\-]+/g, "-").toLowerCase();
+  const fileName = `${dateStr}-${safeTitle}.md`;
   const postPath = `_posts/${fileName}`;
 
   let imageMarkdown = "";
@@ -46,28 +42,28 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
   if (image) {
     const imageBase64 = await toBase64(image);
-    imagePath = `img/${dateStr}/${image.name}`;
+    const imageFolder = `img/${dateStr}`;
+    imagePath = `${imageFolder}/${image.name}`;
     await uploadToGitHub(token, repo, imagePath, imageBase64, "이미지 업로드");
     imageMarkdown = `\n\n![이미지](../${imagePath})\n`;
   }
 
-  const mdContent = `---
-title: "${titleInput}"
-subtitle: "${subtitleInput || ""}"
-author: "donghun"
-avatar: "img/authors/6497.jpg"
-image: "${imagePath || ""}"
-date: ${fullDateTime}
----
-
-${contentInput}${imageMarkdown}
-`;
+  const mdContent = `---\n` +
+    `title:  "${titleInput}"\n` +
+    `subtitle:  "${subtitleInput}"\n` +
+    `author:  "donghun"\n` +
+    `avatar:  "img/authors/6497.jpg"\n` +
+    `image:  "${imagePath}"\n` +
+    `date:   ${fullDateTime}\n` +
+    `---\n\n` +
+    `${contentInput}${imageMarkdown}`;
 
   const encodedContent = btoa(unescape(encodeURIComponent(mdContent)));
   await uploadToGitHub(token, repo, postPath, encodedContent, "글 업로드");
 
   status.textContent = `✅ 글 업로드 완료: ${fileName}`;
-  const blogUrl = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${safeSlug}/`;
+  const blogSlug = safeTitle.toLowerCase();
+  const blogUrl = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${blogSlug}/`;
   previewLink.href = blogUrl;
   previewLink.style.display = "inline-block";
 });
@@ -75,22 +71,6 @@ ${contentInput}${imageMarkdown}
 document.getElementById("resetToken").addEventListener("click", () => {
   localStorage.removeItem("github_token");
   alert("🔓 GitHub 토큰이 초기화되었습니다.");
-});
-
-document.getElementById("image").addEventListener("change", function () {
-  const preview = document.getElementById("imagePreview");
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      preview.src = e.target.result;
-      preview.style.display = "block";
-    };
-    reader.readAsDataURL(file);
-  } else {
-    preview.src = "#";
-    preview.style.display = "none";
-  }
 });
 
 async function toBase64(file) {
