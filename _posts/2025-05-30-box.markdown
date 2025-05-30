@@ -1,5 +1,5 @@
 ---
-title: "box"
+title:  "box"
 subtitle: "테스트"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
