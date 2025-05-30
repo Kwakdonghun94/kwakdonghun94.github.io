@@ -3,7 +3,7 @@ title: "test"
 subtitle: "테스트"
 author: "donghun"
 avatar: "img/authors/6497.jpg"
-image: "img/a.jpg"
+image: "img/IMG_0579.jpeg"
 date: 2025-05-30 23:24:19
 ---
 
