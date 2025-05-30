@@ -22,20 +22,14 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
 
-  const now = new Date();
-  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  const kstDate = new Date(utc + 9 * 60 * 60000);
-  const yyyy = kstDate.getFullYear();
-  const mm = String(kstDate.getMonth() + 1).padStart(2, "0");
-  const dd = String(kstDate.getDate()).padStart(2, "0");
-  const hh = String(kstDate.getHours()).padStart(2, "0");
-  const mi = String(kstDate.getMinutes()).padStart(2, "0");
-  const ss = String(kstDate.getSeconds()).padStart(2, "0");
+  // ✅ 정확한 한국 시간 기반 날짜 계산 (밀림 방지)
+  const kst = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Seoul" });
+  const [dateStr, timeStr] = kst.split(" ");
+  const fullDateTime = `${dateStr} ${timeStr}`;
 
-  const dateStr = `${yyyy}-${mm}-${dd}`;
-  const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
+  const [yyyy, mm, dd] = dateStr.split("-");
 
-  // 간단한 한글 로마자 변환 테이블 (정확도는 낮지만 블로그 slug에는 충분)
+  // 간단한 한글 로마자 변환 테이블
   const hangulMap = {
     '가': 'ga', '나': 'na', '다': 'da', '라': 'ra', '마': 'ma', '바': 'ba', '사': 'sa',
     '아': 'a', '자': 'ja', '차': 'cha', '카': 'ka', '타': 'ta', '파': 'pa', '하': 'ha',
