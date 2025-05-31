@@ -32,8 +32,10 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
   const dateStr = `${yyyy}-${mm}-${dd}`;
   const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
-  const safeTitle = titleInput.replace(/[^\w\-]+/g, "-").toLowerCase();
-  const fileName = `${dateStr}-${safeTitle}.md`;
+
+  // ✅ 고유 영문 파일 이름 생성 (post 접두어 제거)
+  const uniqueSuffix = Math.random().toString(36).substring(2, 10);
+  const fileName = `${dateStr}-${uniqueSuffix}.md`;
   const postPath = `_posts/${fileName}`;
 
   let imageMarkdown = "";
