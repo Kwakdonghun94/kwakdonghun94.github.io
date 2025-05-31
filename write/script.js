@@ -113,3 +113,33 @@ async function uploadToGitHub(token, repo, path, contentBase64, message) {
       preview.style.display = "none";
     }
   });
+// 본문 이미지 삽입
+document.getElementById("insertImageBtn").addEventListener("click", async () => {
+  const fileInput = document.getElementById("insertImage");
+  const contentArea = document.getElementById("content");
+
+  const file = fileInput.files[0];
+  if (!file) return alert("📸 삽입할 이미지를 선택해주세요.");
+
+  const token = localStorage.getItem("github_token");
+  const repo = "kwakdonghun94/kwakdonghun94.github.io";
+  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // -9시간 적용
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const dateStr = `${yyyy}-${mm}-${dd}`;
+
+  const imagePath = `img/${dateStr}/${file.name}`;
+  const imageBase64 = await toBase64(file);
+
+  await uploadToGitHub(token, repo, imagePath, imageBase64, "본문 이미지 삽입");
+
+  // 마크다운 이미지 링크를 현재 커서 위치에 삽입
+  const markdown = `\n\n![이미지](../${imagePath})\n\n`;
+  const cursor = contentArea.selectionStart;
+  const text = contentArea.value;
+  contentArea.value = text.slice(0, cursor) + markdown + text.slice(cursor);
+
+  alert("📌 이미지가 본문에 삽입되었습니다.");
+  fileInput.value = ""; // 파일 입력 초기화
+});
