@@ -10,4 +10,5 @@ permalink: /map/
   height="700px" 
   style="border:none;" 
   allowfullscreen>
+  referrerpolicy="no-referrer-when-downgrade">
 </iframe>
