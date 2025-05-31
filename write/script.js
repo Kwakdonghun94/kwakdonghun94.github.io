@@ -21,7 +21,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   }
 
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
-  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // 브라우저 시간 그대로 사용
+  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // -9시간 적용
 
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, "0");
@@ -33,7 +33,6 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   const dateStr = `${yyyy}-${mm}-${dd}`;
   const fullDateTime = `${dateStr} ${hh}:${mi}:${ss}`;
 
-  // ✅ 고유 영문 파일 이름 생성 (post 접두어 제거)
   const uniqueSuffix = Math.random().toString(36).substring(2, 10);
   const fileName = `${dateStr}-${uniqueSuffix}.md`;
   const postPath = `_posts/${fileName}`;
@@ -63,9 +62,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   await uploadToGitHub(token, repo, postPath, encodedContent, "글 업로드");
 
   status.textContent = `✅ 글 업로드 완료: ${fileName}`;
-  const blogSlug = safeTitle.toLowerCase();
-  const blogUrl = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${blogSlug}/`;
-  previewLink.href = blogUrl;
+  previewLink.href = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${fileName.replace(".md", "")}/`;
   previewLink.style.display = "inline-block";
 });
 
@@ -97,42 +94,44 @@ async function uploadToGitHub(token, repo, path, contentBase64, message) {
   });
 }
 
-
-  const preview = document.getElementById("preview");
-  document.getElementById("image").addEventListener("change", (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        preview.src = event.target.result;
-        preview.style.display = "block";
-      };
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = "#";
-      preview.style.display = "none";
-    }
-  });
-// ✅ 본문 이미지 삽입
-document.getElementById("insertImageBtn").addEventListener("click", async () => {
-  const insertFile = document.getElementById("insertImage").files[0];
-  if (!insertFile) {
-    alert("본문에 삽입할 이미지를 선택하세요.");
-    return;
+// 이미지 미리보기
+const preview = document.getElementById("preview");
+document.getElementById("image").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      preview.src = event.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "#";
+    preview.style.display = "none";
   }
+});
 
-  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // 한국시간
-  const dateStr = now.toISOString().split("T")[0]; // yyyy-mm-dd
+// 본문 이미지 삽입
+document.getElementById("insertImageBtn").addEventListener("click", async () => {
+  const insertImage = document.getElementById("insertImage").files[0];
+  const content = document.getElementById("content");
+
+  if (!insertImage) return alert("본문에 삽입할 이미지를 선택해주세요.");
+
+  const now = new Date(Date.now() - 9 * 60 * 60 * 1000); // UTC-9h 적용
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const dateStr = `${yyyy}-${mm}-${dd}`;
   const imageFolder = `img/${dateStr}`;
-  const imagePath = `${imageFolder}/${insertFile.name}`;
+  const imagePath = `${imageFolder}/${insertImage.name}`;
+
+  const imageBase64 = await toBase64(insertImage);
+  const token = localStorage.getItem("github_token");
   const repo = "kwakdonghun94/kwakdonghun94.github.io";
 
-  const token = localStorage.getItem("github_token");
-  const imageBase64 = await toBase64(insertFile);
   await uploadToGitHub(token, repo, imagePath, imageBase64, "본문 이미지 업로드");
 
-  const textarea = document.getElementById("content");
-  const insertMarkdown = `\n\n![이미지](../${imagePath})\n`;
-  textarea.value += insertMarkdown;
-  alert("✅ 본문에 이미지가 삽입되었습니다!");
+  const markdown = `\n\n![본문 이미지](../${imagePath})\n\n`;
+  content.value += markdown;
 });
