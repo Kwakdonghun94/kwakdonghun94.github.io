@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>블로그 글쓰기</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css" />
+  <!-- Cropper.js CDN -->
+  <link  href="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.css" rel="stylesheet"/>
 </head>
 <body>
   <main>
@@ -14,15 +15,18 @@
       <input type="text" id="title" placeholder="제목" required />
       <input type="text" id="subtitle" placeholder="부제목 (선택)" />
       <textarea id="content" placeholder="내용" required></textarea>
-
-      <label for="thumbnail">📷 썸네일 이미지 선택</label>
-      <input type="file" id="thumbnail" accept="image/*" />
-      <img id="preview" style="display:none; max-width:100%; border-radius:12px; margin-top:10px;" />
-
-      <label for="insertImage">🖼 본문 이미지 선택</label>
-      <input type="file" id="insertImage" accept="image/*" />
+      <!-- 대표 썸네일 이미지 -->
+      <label class="file-label">
+        <input type="file" id="thumbnail" accept="image/*" />
+        <span>썸네일 이미지 선택 (16:9 자르기)</span>
+      </label>
+      <img id="thumbPreview" style="display:none; max-width:100%; border-radius:12px; margin-top:10px;" />
+      <!-- 본문 이미지 삽입 -->
+      <label class="file-label">
+        <input type="file" id="insertImage" accept="image/*" />
+        <span>본문 이미지 삽입</span>
+      </label>
       <button type="button" id="insertImageBtn">📎 본문 이미지 삽입</button>
-
       <div class="buttons">
         <button type="submit">업로드</button>
         <button type="button" id="resetToken">토큰 초기화</button>
@@ -30,15 +34,21 @@
       </div>
       <div id="status"></div>
     </form>
-    <!-- Cropper Modal -->
-    <div id="cropModal" style="display:none;">
-      <div>
-        <img id="cropImage" style="max-width:100%;" />
-        <button id="cropConfirm" type="button">자르기 완료</button>
+  </main>
+
+  <!-- 썸네일 자르기 모달 -->
+  <div id="cropModal" class="modal">
+    <div class="modal-content">
+      <img id="cropperImage" style="max-width:100%;" />
+      <div style="margin-top: 10px; text-align: right;">
+        <button id="cropBtn">자르기 완료</button>
+        <button id="closeModalBtn" style="margin-left:10px;">취소</button>
       </div>
     </div>
-  </main>
-  <script src="https://unpkg.com/cropperjs"></script>
+  </div>
+
+  <!-- Cropper.js -->
+  <script src="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
