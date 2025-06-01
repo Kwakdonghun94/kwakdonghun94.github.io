@@ -19,7 +19,7 @@
       <input type="file" id="thumbnail" accept="image/*" />
       <img id="preview" style="display:none; max-width:100%; border-radius:12px; margin-top:10px;" />
 
-      <label for="insertImage">🖼 본문 이미지 삽입</label>
+      <label for="insertImage">🖼 본문 이미지 선택</label>
       <input type="file" id="insertImage" accept="image/*" />
       <button type="button" id="insertImageBtn">📎 본문 이미지 삽입</button>
 
@@ -30,12 +30,11 @@
       </div>
       <div id="status"></div>
     </form>
-
     <!-- Cropper Modal -->
     <div id="cropModal" style="display:none;">
       <div>
         <img id="cropImage" style="max-width:100%;" />
-        <button id="cropConfirm">자르기 완료</button>
+        <button id="cropConfirm" type="button">자르기 완료</button>
       </div>
     </div>
   </main>
