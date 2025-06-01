@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>블로그 글쓰기</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css" />
 </head>
 <body>
   <main>
@@ -15,15 +15,13 @@
       <input type="text" id="subtitle" placeholder="부제목 (선택)" />
       <textarea id="content" placeholder="내용" required></textarea>
 
-      <!-- 본문 이미지 삽입 기능 -->
-      <label for="insertImage">본문 이미지 선택</label>
+      <label for="thumbnail">📷 썸네일 이미지 선택</label>
+      <input type="file" id="thumbnail" accept="image/*" />
+      <img id="preview" style="display:none; max-width:100%; border-radius:12px; margin-top:10px;" />
+
+      <label for="insertImage">🖼 본문 이미지 삽입</label>
       <input type="file" id="insertImage" accept="image/*" />
       <button type="button" id="insertImageBtn">📎 본문 이미지 삽입</button>
-
-      <!-- 대표 이미지 미리보기 -->
-      <label for="image">썸네일 이미지 선택</label>
-      <input type="file" id="image" accept="image/*" />
-      <img id="preview" style="display:none; max-width:100%; border-radius:12px; margin-top:10px;" />
 
       <div class="buttons">
         <button type="submit">업로드</button>
@@ -32,7 +30,16 @@
       </div>
       <div id="status"></div>
     </form>
+
+    <!-- Cropper Modal -->
+    <div id="cropModal" style="display:none;">
+      <div>
+        <img id="cropImage" style="max-width:100%;" />
+        <button id="cropConfirm">자르기 완료</button>
+      </div>
+    </div>
   </main>
+  <script src="https://unpkg.com/cropperjs"></script>
   <script src="script.js"></script>
 </body>
 </html>
