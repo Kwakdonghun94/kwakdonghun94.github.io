@@ -79,7 +79,7 @@
 }
 
 .card__title {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	line-height: 1;
 	margin: 5px 0 0 0;
 	color: #3b393d;
@@ -96,7 +96,7 @@
 }
 
 .card__subtitle {
-	font-size: .95em;
+	font-size: .65em;
 	line-height: 1;
 	margin: 5px 0 0;
 	color: #777778;
