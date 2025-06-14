@@ -121,7 +121,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   const mdContent = `---\n` +
     `title:  "${titleInput}"\n` +
     `subtitle:  "${subtitleInput}"\n` +
-    `author:  "donghun"\n` +
+    `author:  "mancambo"\n` +
     `avatar:  "img/authors/6497.jpg"\n` +
     `image:  "${thumbPath}"\n` +
     `date:   ${fullDateTime}\n` +

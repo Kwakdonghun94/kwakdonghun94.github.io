@@ -135,9 +135,11 @@
 }
 
 .meta__avatar {
-	border-radius: 50%;
-	height: 100px;
-	width: 100px;
+  border-radius: 50%;
+  height: 100px !important;
+  width: 100px !important;
+  object-fit: cover;
+  display: inline-block;
 }
 
 .meta__author {

@@ -1,7 +1,7 @@
 ---
 title: "About"
 subtitle: "이 블로그에 대해"
-author: "donghun"
+author: "mancambo"
 avatar: "img/authors/6497.jpg"
 image: "img/authors/6497.jpg"
 permalink: /about/
