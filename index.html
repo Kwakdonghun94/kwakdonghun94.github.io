@@ -24,6 +24,15 @@ layout: compress
             root.setAttribute('class', 'ff');
         }
     </script>
+    <!-- ⬇️ 구글 애널리틱스 태그는 head 맨 마지막에 단독으로! -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-299DLJC5ZY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-299DLJC5ZY');
+    </script>
 </head>
 <body class="body">
 <div class="container">
