@@ -60,7 +60,7 @@ document.getElementById("insertImageBtn").addEventListener("click", async () => 
   const dateStr = now.toISOString().split("T")[0];
   const imageFolder = `img/${dateStr}`;
   const imagePath = `${imageFolder}/${insertFile.name}`;
-  const repo = "kwakdonghun94/kwakdonghun94.github.io";
+  const repo = "kwakdonghun94/mancambo.github.io";
   const token = localStorage.getItem("github_token");
   const imageBase64 = await toBase64(insertFile);
   await uploadToGitHub(token, repo, imagePath, imageBase64, "본문 이미지 업로드");
@@ -91,7 +91,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
     localStorage.setItem("github_token", token);
   }
 
-  const repo = "kwakdonghun94/kwakdonghun94.github.io";
+  const repo = "kwakdonghun94/mancambo.github.io";
   const now = new Date(Date.now() - 9 * 60 * 60 * 1000);
 
   const yyyy = now.getFullYear();
@@ -132,7 +132,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
   await uploadToGitHub(token, repo, postPath, encodedContent, "글 업로드");
 
   status.textContent = `✅ 글 업로드 완료: ${fileName}`;
-  previewLink.href = `https://kwakdonghun94.github.io/${yyyy}/${mm}/${dd}/${titleInput}/`;
+  previewLink.href = `https://mancambo.github.io/${yyyy}/${mm}/${dd}/${titleInput}/`;
   previewLink.style.display = "inline-block";
 });
 
