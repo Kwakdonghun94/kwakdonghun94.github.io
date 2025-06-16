@@ -2,12 +2,12 @@
 /*CARD */
 
 .card {
-	position: relative;
-	float: left;
-	width: 29%;
-	height: 0;
-	margin: 2%;
-	padding-bottom: 20%;
+  position: relative;
+  float: left;
+  width: 29%;
+  height: 0;
+  margin: 2%;
+  padding-bottom: 56.25%;  /* 16:9 비율 (9/16 = 0.5625) */
 }
 
 .card__container {
