@@ -122,7 +122,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
     `title:  "${titleInput}"\n` +
     `subtitle:  "${subtitleInput}"\n` +
     `author:  "mancambo"\n` +
-    `avatar:  "img/authors/6497.jpg"\n` +
+    `avatar:  "img/authors/0616.png"\n` +
     `image:  "${thumbPath}"\n` +
     `date:   ${fullDateTime}\n` +
     `---\n\n` +
