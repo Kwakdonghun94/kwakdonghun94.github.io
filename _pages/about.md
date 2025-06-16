@@ -17,7 +17,7 @@ layout: page
 <div style="text-align: center; font-size: 1.1em;">
   <p><strong>안녕하세요, 만캄보입니다.</strong></p>
   <p>
-    닉네임? 사실 깊은 뜻 없습니다.<br>
+    만캄보? 깊은 뜻 없습니다.<br>
     “뭐하지, 뭐하지...” 고민하다가 <b>만캄보</b>가 떠올라서 그냥 썼어요.
   </p>
   <p>
@@ -34,5 +34,7 @@ layout: page
     누군가에겐 소소한 공감이 되길 바라며,<br>
     재미있는 거, 신기한 거, 해보고 싶은 거<br>
     다 올리고 삽니다.
+    배포 프로그램 오류나 문의는 
+    doghoon1@naver.com 으로 연락주세요
   </p>
 </div>
